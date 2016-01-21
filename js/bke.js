@@ -15,22 +15,23 @@ for(loop = 0; loop < 9; loop++){
     imagelist[loop] = document.getElementsByTagName('img')[loop];
 }
 
-imagelist[0].addEventListener("click", function(){ imagechange(0); });
-imagelist[1].addEventListener("click", function(){ imagechange(1); });
-imagelist[2].addEventListener("click", function(){ imagechange(2); });
-imagelist[3].addEventListener("click", function(){ imagechange(3); });
-imagelist[4].addEventListener("click", function(){ imagechange(4); });
-imagelist[5].addEventListener("click", function(){ imagechange(5); });
-imagelist[6].addEventListener("click", function(){ imagechange(6); });
-imagelist[7].addEventListener("click", function(){ imagechange(7); });
-imagelist[8].addEventListener("click", function(){ imagechange(8); });
-
 window.onload = function () {
+
+    for(loop = 0; loop < 9; loop++){
+        imagelist[loop] = document.getElementsByTagName('img')[loop];
+
+        (function(index){
+            imagelist[loop].onclick = function(){
+                imagechange(index);
+            }
+        })(loop);
+    }
+
     buttonstartstop = document.querySelector('button');
     buttonstartstop.addEventListener('click', btnstartreset);
 
     playerimage = document.querySelector('#game-info img');
-    playernumber = document.querySelector('#game-info table tr td:last-child')
+    playernumber = document.querySelector('#game-info table tr td:last-child');
 };
 
 function btnstartreset(event) {
@@ -40,10 +41,10 @@ function btnstartreset(event) {
         start_spel = 1;
         this.innerHTML = 'Reset spel';
     } else {
+        //speelveld_remove_click();
+        start_spel = 0;
         this.innerHTML = 'Start spel';
         emptyspeelveld();
-        start_spel = 0;
-        //speelveld_remove_click();
     }
 }
 
