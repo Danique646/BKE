@@ -60,6 +60,7 @@ function imagechange(getal){
         if (spelers == "player1") {
             imagelist[getal].src = 'img/cross.jpg';
             spelers="player2";
+
             changeplayer();
         } else {
             imagelist[getal].src = 'img/circle.jpg';
