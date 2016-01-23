@@ -66,6 +66,7 @@ function imagechange(getal){
             spelers="player1";
             changeplayer();
         }
+        check_winner();
     } else {
         alert("kies een ander vakje");
     }
@@ -87,5 +88,37 @@ function changeplayer (){
 function emptyspeelveld (){
     for(loop = 0; loop < 9; loop++){
         imagelist[loop].src = 'img/empty.jpg';
+    }
+}
+
+function check_winner(){
+    if (
+        imagelist[0].src.match('img/cross.jpg') && imagelist[1].src.match('img/cross.jpg') && imagelist[2].src.match('img/cross.jpg') ||
+        imagelist[3].src.match('img/cross.jpg') && imagelist[4].src.match('img/cross.jpg') && imagelist[5].src.match('img/cross.jpg') ||
+        imagelist[6].src.match('img/cross.jpg') && imagelist[7].src.match('img/cross.jpg') && imagelist[8].src.match('img/cross.jpg') ||
+        imagelist[0].src.match('img/cross.jpg') && imagelist[3].src.match('img/cross.jpg') && imagelist[6].src.match('img/cross.jpg') ||
+        imagelist[1].src.match('img/cross.jpg') && imagelist[4].src.match('img/cross.jpg') && imagelist[7].src.match('img/cross.jpg') ||
+        imagelist[2].src.match('img/cross.jpg') && imagelist[5].src.match('img/cross.jpg') && imagelist[8].src.match('img/cross.jpg') ||
+        imagelist[0].src.match('img/cross.jpg') && imagelist[4].src.match('img/cross.jpg') && imagelist[8].src.match('img/cross.jpg') ||
+        imagelist[2].src.match('img/cross.jpg') && imagelist[4].src.match('img/cross.jpg') && imagelist[6].src.match('img/cross.jpg')
+    ) {
+        alert("Cross won!");
+    } else if (
+        imagelist[0].src.match('img/circle.jpg') && imagelist[1].src.match('img/circle.jpg') && imagelist[2].src.match('img/circle.jpg') ||
+        imagelist[3].src.match('img/circle.jpg') && imagelist[4].src.match('img/circle.jpg') && imagelist[5].src.match('img/circle.jpg') ||
+        imagelist[6].src.match('img/circle.jpg') && imagelist[7].src.match('img/circle.jpg') && imagelist[8].src.match('img/circle.jpg') ||
+        imagelist[0].src.match('img/circle.jpg') && imagelist[3].src.match('img/circle.jpg') && imagelist[6].src.match('img/circle.jpg') ||
+        imagelist[1].src.match('img/circle.jpg') && imagelist[4].src.match('img/circle.jpg') && imagelist[7].src.match('img/circle.jpg') ||
+        imagelist[2].src.match('img/circle.jpg') && imagelist[5].src.match('img/circle.jpg') && imagelist[8].src.match('img/circle.jpg') ||
+        imagelist[0].src.match('img/circle.jpg') && imagelist[4].src.match('img/circle.jpg') && imagelist[8].src.match('img/circle.jpg') ||
+        imagelist[2].src.match('img/circle.jpg') && imagelist[4].src.match('img/circle.jpg') && imagelist[6].src.match('img/circle.jpg')
+    ) {
+        alert("Circle won!");
+    } else if (
+        !imagelist[0].src.match('img/empty.jpg') && !imagelist[1].src.match('img/empty.jpg') && !imagelist[2].src.match('img/empty.jpg') &&
+        !imagelist[3].src.match('img/empty.jpg') && !imagelist[4].src.match('img/empty.jpg') && !imagelist[5].src.match('img/empty.jpg') &&
+        !imagelist[6].src.match('img/empty.jpg') && !imagelist[7].src.match('img/empty.jpg') && !imagelist[8].src.match('img/empty.jpg')
+    ){
+        alert("It is a tie");
     }
 }
