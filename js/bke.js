@@ -67,7 +67,9 @@ function imagechange(getal){
         alert('start het spel om te kunnen spelen');
         return;
     }
-    if (imagelist[getal].src == 'http://localhost/javascript/nieuwe-bke/img/empty.jpg') {
+    array = imagelist[getal].src.split("/");
+    img = array[array.length-1];
+    if (img == 'empty.jpg') {
         if (spelers == "player1") {
             imagelist[getal].src = 'img/cross.jpg';
             spelers="player2";
