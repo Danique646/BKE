@@ -4,6 +4,7 @@
  * In dit bestand staat alle javascript code
  * om ons spel te laten werken.
  *
+ * Gemaakt door Danique646
  **************************************************/
 var spelers = "player1";
 var start_spel= 0;
@@ -145,3 +146,8 @@ function check_winner(){
     }
 }
 
+
+/***************************************************
+ * bke.js
+ * Gemaakt door Danique646
+ **************************************************/
